@@ -10,12 +10,15 @@
     <unique-id>3iz5sq6mtvimm</unique-id>
     <saved-with-version>20000</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
         <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
@@ -59,6 +62,10 @@
         </object-type>
         <object-type name="Player" sid="2556617290217297">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="PlayerName" sid="2397340868419179" type="string" />
+                <instance-variable name="CurrentWeapon" sid="1004402031033852" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="6228429950777632">
                     <behavior id="solid" />
@@ -72,7 +79,9 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1189048788474133" speed="5">
-                    <frame duration="1" hotspotX="0.511628" hotspotY="0.410256" original-source="C:\Users\David\Git Projects\LD32\Files\player.png" />
+                    <frame duration="1" hotspotX="0.581395" hotspotY="0.512821" original-source="C:\Users\David\Git Projects\LD32\Files\player.png">
+                        <image-point name="Spawn Weapon" x="0.883721" y="0.564103" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -100,6 +109,9 @@
         </object-type>
         <object-type name="Enemy" sid="5123457480550338">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="NPCName" sid="2632144450035901" type="string" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Pathfinding" sid="546045867972331">
                     <behavior id="Pathfinding" />
@@ -116,6 +128,34 @@
                     <frame duration="1" hotspotX="0.860465" hotspotY="0.615385" original-source="C:\Users\David\Git Projects\LD32\Files\player.png" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type global="1" name="Weapons" sid="8422188391646801">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type global="1" name="PossibleNames" sid="6053713708914254">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="Egg" sid="5480151050233335">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="4308601175124307">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2549945266665487" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="4" loop="0" name="Shatter" pingpong="0" repeatcount="1" repeatto="0" sid="3131990241120414" speed="8">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg1.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg4.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Overlay" sid="542136075739538">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
