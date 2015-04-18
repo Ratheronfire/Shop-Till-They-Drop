@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Fight Events</name>
+    <events>
+        <event-block sid="4853115599532684">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8843897365469253" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="5" name="Add obstacle" sid="8195081192299997" type="Enemy">
+                    <param id="0" name="Obstacle">Shelf</param>
+                </action>
+                <action behavior="Pathfinding" id="14" name="Set speed" sid="7458158140410826" type="Enemy">
+                    <param id="0" name="Speed">50</param>
+                </action>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="6624603422846778" type="Enemy">
+                    <param id="0" name="X">random(LayoutWidth)</param>
+                    <param id="1" name="Y">random(LayoutHeight)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7147282211470526">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="8541582938806209" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="8189663113299416" type="Player">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="2418457089811647" title="Enemy Pathfinding">
+            <sub-events>
+                <event-block sid="7857616195645532">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="0" name="On path found" sid="1999693074244937" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="1" name="Move along path" sid="3451045641879857" type="Enemy" />
+                    </actions>
+                </event-block>
+                <event-block sid="6225864138490118">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="3138898973327299" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="8252632360883176" type="Enemy">
+                            <param id="0" name="X">random(LayoutWidth)</param>
+                            <param id="1" name="Y">random(LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7758177490930511">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="5" name="On arrived" sid="2518087353929922" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="3138563719798462" type="Enemy">
+                            <param id="0" name="X">random(LayoutWidth)</param>
+                            <param id="1" name="Y">random(LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
