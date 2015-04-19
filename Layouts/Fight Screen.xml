@@ -51,6 +51,26 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="TiledBackground" uid="41">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>32</x>
+                        <y>32</y>
+                        <z>0</z>
+                        <width>576</width>
+                        <height>416</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -79,7 +99,8 @@
                     </properties>
                     <instance-variables>
                         <PlayerName>Player</PlayerName>
-                        <CurrentWeapon>1</CurrentWeapon>
+                        <CurrentWeapon>0</CurrentWeapon>
+                        <Health>100</Health>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -786,35 +807,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Shelf" uid="28">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>176</x>
-                        <y>368</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Shelf" uid="29">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -948,7 +940,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>176</x>
+                        <x>336</x>
                         <y>368</y>
                         <z>0</z>
                         <width>32</width>
@@ -969,17 +961,22 @@
                     </properties>
                     <instance-variables>
                         <NPCName>John Smith</NPCName>
+                        <ID>1</ID>
+                        <CurrentWeapon>0</CurrentWeapon>
+                        <Health>100</Health>
+                        <JustFired>false</JustFired>
+                        <HasTarget>false</HasTarget>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pathfinding">
                             <properties>
                                 <cell-size>30</cell-size>
                                 <cell-border>-1</cell-border>
-                                <obstacles>Solids</obstacles>
+                                <obstacles>Custom</obstacles>
                                 <max-speed>200</max-speed>
                                 <acceleration>1000</acceleration>
                                 <deceleration>2000</deceleration>
-                                <rotate-speed>135</rotate-speed>
+                                <rotate-speed>220</rotate-speed>
                                 <rotate-object>Yes</rotate-object>
                                 <diagonals>Enabled</diagonals>
                                 <initial-state>Enabled</initial-state>
@@ -987,8 +984,8 @@
                         </behavior-instance>
                         <behavior-instance type="LineOfSight">
                             <properties>
-                                <obstacles>Solids</obstacles>
-                                <range>10000</range>
+                                <obstacles>Custom</obstacles>
+                                <range>100000</range>
                                 <cone-of-view>360</cone-of-view>
                                 <use-collision-cells>Yes</use-collision-cells>
                             </properties>
@@ -996,6 +993,11 @@
                         <behavior-instance type="BoundToLayout">
                             <properties>
                                 <bound-by>Edge</bound-by>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -1008,8 +1010,8 @@
                         <width>23.759479523</width>
                         <height>21.549295425</height>
                         <depth>0</depth>
-                        <hotspotX>0.860465109</hotspotX>
-                        <hotspotY>0.615384638</hotspotY>
+                        <hotspotX>0.511627913</hotspotX>
+                        <hotspotY>0.589743614</hotspotY>
                         <angle>2.445295811</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1021,6 +1023,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Creator>0</Creator>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
@@ -1032,6 +1037,7 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1064,13 +1070,115 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>448</y>
+                        <y>447</y>
                         <z>0</z>
-                        <width>200</width>
-                        <height>30</height>
+                        <width>576</width>
+                        <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Enemy" uid="39">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <NPCName>Hot Saucerman</NPCName>
+                        <ID>2</ID>
+                        <CurrentWeapon>0</CurrentWeapon>
+                        <Health>100</Health>
+                        <JustFired>false</JustFired>
+                        <HasTarget>false</HasTarget>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Pathfinding">
+                            <properties>
+                                <cell-size>30</cell-size>
+                                <cell-border>-1</cell-border>
+                                <obstacles>Custom</obstacles>
+                                <max-speed>200</max-speed>
+                                <acceleration>1000</acceleration>
+                                <deceleration>2000</deceleration>
+                                <rotate-speed>220</rotate-speed>
+                                <rotate-object>Yes</rotate-object>
+                                <diagonals>Enabled</diagonals>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="LineOfSight">
+                            <properties>
+                                <obstacles>Custom</obstacles>
+                                <range>100000</range>
+                                <cone-of-view>360</cone-of-view>
+                                <use-collision-cells>Yes</use-collision-cells>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="BoundToLayout">
+                            <properties>
+                                <bound-by>Edge</bound-by>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>48</x>
+                        <y>48</y>
+                        <z>0</z>
+                        <width>23.759479523</width>
+                        <height>21.549295425</height>
+                        <depth>0</depth>
+                        <hotspotX>0.511627913</hotspotX>
+                        <hotspotY>0.589743614</hotspotY>
+                        <angle>2.445295811</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Bean" uid="40">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Creator>0</Creator>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>150</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>96</x>
+                        <y>-80</y>
+                        <z>0</z>
+                        <width>8</width>
+                        <height>8</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
