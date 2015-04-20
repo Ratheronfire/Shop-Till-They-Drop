@@ -11,6 +11,7 @@
     <saved-with-version>20000</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -18,12 +19,15 @@
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
+        <plugin author="Scirra" id="progressbar" version="1">Progress bar</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
         <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -81,11 +85,14 @@
                 <behavior-type name="BoundToLayout" sid="717575972674159">
                     <behavior id="bound" />
                 </behavior-type>
+                <behavior-type name="Flash" sid="365369135453076">
+                    <behavior id="Flash" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1189048788474133" speed="5">
-                    <frame duration="1" hotspotX="0.581395" hotspotY="0.512821" original-source="C:\Users\David\Git Projects\LD32\Files\player.png">
-                        <image-point name="Spawn Weapon" x="1.16279" y="0.487179" />
+                    <frame duration="1" hotspotX="0.59375" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\_Player.png">
+                        <image-point name="Spawn Weapon" x="1.15625" y="0.5" />
                         <collision-poly>
                             <point x="0.116279" y="0.128205" />
                             <point x="0.488372" y="0.025641" />
@@ -146,11 +153,14 @@
                 <behavior-type name="Solid" sid="8455971947887009">
                     <behavior id="solid" />
                 </behavior-type>
+                <behavior-type name="Flash" sid="9588558850282373">
+                    <behavior id="Flash" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9195935552660879" speed="5">
-                    <frame duration="1" hotspotX="0.511628" hotspotY="0.589744" original-source="C:\Users\David\Git Projects\LD32\Files\player.png">
-                        <image-point name="Spawn Weapon" x="1.13953" y="0.487179" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.59375" original-source="C:\Users\David\Git Projects\LD32\Files\Enemy.png">
+                        <image-point name="Spawn Weapon" x="1.125" y="0.5" />
                         <collision-poly>
                             <point x="0.116279" y="0.128205" />
                             <point x="0.488372" y="0.025641" />
@@ -405,6 +415,38 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Audio" sid="5511513977918531">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Baguette" sid="1147524680116656">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Creator" sid="847832640637038" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pin" sid="3473550847075147">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8963482146617814" speed="15">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Baguette\1.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Baguette\2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Baguette\3.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ProgressBar" sid="9733749654144194">
+            <plugin id="progressbar" />
+            <instance-variables>
+                <instance-variable name="Owner" sid="9327278086033154" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pin" sid="4434000436772003">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -423,8 +465,37 @@
                 <analog-deadzone>25</analog-deadzone>
             </properties>
         </global-instance>
+        <global-instance type="Audio" uid="59">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="BaguetteHit.m4a" />
+        <file name="BaguetteHit.ogg" />
+        <file name="BeanHit.m4a" />
+        <file name="BeanHit.ogg" />
+        <file name="BeanThrow.m4a" />
+        <file name="BeanThrow.ogg" />
+        <file name="EggHit.m4a" />
+        <file name="EggHit.ogg" />
+        <file name="EggThrow.m4a" />
+        <file name="EggThrow.ogg" />
+        <file name="GetItem.m4a" />
+        <file name="GetItem.ogg" />
+        <file name="BaguetteSwing.m4a" />
+        <file name="BaguetteSwing.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">
