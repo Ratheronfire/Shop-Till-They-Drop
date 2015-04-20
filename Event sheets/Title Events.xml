@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Title Events</name>
+    <events>
+        <event-block sid="3242028100812853">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="8083320218336654" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Play</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="1648216787956361" type="System">
+                    <param id="0" name="Layout">&quot;Fight Screen&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7055437165405742">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="3635170656401076" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="2386269258702309">
+                    <conditions>
+                        <condition id="7" name="Cursor is over object" sid="5011596895414048" type="Mouse">
+                            <param id="0" name="Object">Help</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="8557308700174131" type="Tooltip">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5886120202713018">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="7444080535633925" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="4152942944223574" type="Tooltip">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

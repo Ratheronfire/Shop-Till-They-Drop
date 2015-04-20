@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Shop Till They Drop</name>
+    <description>A game made for the Ludum Dare 32 game jam.</description>
+    <version>1.0.0.0</version>
+    <author>David Johndrow</author>
+    <author-email>ratheronfire@gmail.com</author-email>
+    <author-website>http://</author-website>
+    <app-id></app-id>
+    <unique-id>3iz5sq6mtvimm</unique-id>
+    <saved-with-version>20000</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Title Screen</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Background" sid="8070899914501028">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7510777639979288" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Background.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Player" sid="2556617290217297">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="PlayerName" sid="2397340868419179" type="string" />
+                <instance-variable name="CurrentWeapon" sid="1004402031033852" type="number" />
+                <instance-variable name="Health" sid="8415313170490104" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="6228429950777632">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="1151482771482509">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="717575972674159">
+                    <behavior id="bound" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1189048788474133" speed="5">
+                    <frame duration="1" hotspotX="0.581395" hotspotY="0.512821" original-source="C:\Users\David\Git Projects\LD32\Files\player.png">
+                        <image-point name="Spawn Weapon" x="1.16279" y="0.487179" />
+                        <collision-poly>
+                            <point x="0.116279" y="0.128205" />
+                            <point x="0.488372" y="0.025641" />
+                            <point x="0.860465" y="0.153846" />
+                            <point x="0.976744" y="0.487179" />
+                            <point x="0.860465" y="0.846154" />
+                            <point x="0.488372" y="0.948718" />
+                            <point x="0.139535" y="0.846154" />
+                            <point x="0.0697674" y="0.487179" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="2395644357392488">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Keyboard" sid="6289198600887395">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Gamepad" sid="6816629139177334">
+            <plugin id="gamepad" />
+        </object-type>
+        <object-type name="Shelf" sid="1950652355113023">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="7770807481643412">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7691931062654374" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Shelf.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Enemy" sid="5123457480550338">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="NPCName" sid="2632144450035901" type="string" />
+                <instance-variable name="ID" sid="5482941335544651" type="number" />
+                <instance-variable name="CurrentWeapon" sid="4993635574521333" type="number" />
+                <instance-variable name="Health" sid="6802979668414066" type="number" />
+                <instance-variable name="JustFired" sid="7323124210524533" type="boolean" />
+                <instance-variable name="HasTarget" sid="3010063219439309" type="boolean" />
+                <instance-variable name="RefillingAmmo" sid="2460679542008731" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pathfinding" sid="546045867972331">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+                <behavior-type name="LineOfSight" sid="9536307168995845">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="99068347181139">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="8455971947887009">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9195935552660879" speed="5">
+                    <frame duration="1" hotspotX="0.511628" hotspotY="0.589744" original-source="C:\Users\David\Git Projects\LD32\Files\player.png">
+                        <image-point name="Spawn Weapon" x="1.13953" y="0.487179" />
+                        <collision-poly>
+                            <point x="0.116279" y="0.128205" />
+                            <point x="0.488372" y="0.025641" />
+                            <point x="0.860465" y="0.153846" />
+                            <point x="0.976744" y="0.487179" />
+                            <point x="0.860465" y="0.846154" />
+                            <point x="0.488372" y="0.948718" />
+                            <point x="0.139535" y="0.846154" />
+                            <point x="0.0697674" y="0.487179" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Weapons" sid="8422188391646801">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type global="1" name="PossibleNames" sid="6053713708914254">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="Egg" sid="5480151050233335">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Creator" sid="5425106186836607" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="4308601175124307">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="4766871741133919">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2549945266665487" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="4" loop="0" name="Shatter" pingpong="0" repeatcount="1" repeatto="0" sid="3131990241120414" speed="8">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg1.png">
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg2.png">
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg3.png">
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="1" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="0.8125" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Egg\Egg4.png">
+                        <collision-poly>
+                            <point x="0.0625" y="0.0625" />
+                            <point x="0.5" y="0" />
+                            <point x="0.75" y="0.25" />
+                            <point x="0.9375" y="0.9375" />
+                            <point x="0.5" y="0.875" />
+                            <point x="0.25" y="0.75" />
+                            <point x="0.125" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Overlay" sid="542136075739538">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="ID" sid="5419036207592286" type="number" />
+            </instance-variables>
+        </object-type>
+        <object-type name="TiledBackground" sid="8891328479097102">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\David\Git Projects\LD32\Files\TiledBackground.png" />
+        </object-type>
+        <object-type name="Bean" sid="5055903334586942">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Creator" sid="9547902874762402" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="3433206430065918">
+                    <behavior id="destroy" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="4500442057756857">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8618455701814834" speed="15">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.125" y="0.125" />
+                            <point x="0.5" y="0.125" />
+                            <point x="0.75" y="0.25" />
+                            <point x="1" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="0.875" />
+                            <point x="0.375" y="0.625" />
+                            <point x="0.375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.375" y="0.375" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.875" y="0.125" />
+                            <point x="0.875" y="0.5" />
+                            <point x="0.75" y="0.75" />
+                            <point x="0.5" y="1" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0.125" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.125" y="0.125" />
+                            <point x="0.5" y="0.375" />
+                            <point x="0.625" y="0.375" />
+                            <point x="0.75" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.5" y="0" />
+                            <point x="0.875" y="0.125" />
+                            <point x="0.625" y="0.5" />
+                            <point x="0.625" y="0.625" />
+                            <point x="0.5" y="0.625" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Play" sid="7040523620452348">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6005355380822538" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Play.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Help" sid="8717493425909005">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7254968010766688" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Help.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Tooltip" sid="4901158554527613">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8182205052045929" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\David\Git Projects\LD32\Files\Tooltip.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.5" />
+                            <point x="0.973333" y="0.973333" />
+                            <point x="0.0266667" y="0.973333" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TextBox" sid="5398353082538441">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="BeanCan" sid="8491742012908885">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2083584351102412" speed="5">
+                    <frame duration="1" hotspotX="1.07692" hotspotY="0.625" original-source="C:\Users\David\Git Projects\LD32\Files\BeanCan.png">
+                        <collision-poly>
+                            <point x="0.153846" y="0.0833333" />
+                            <point x="0.461538" y="0.0416667" />
+                            <point x="0.846154" y="0.0833333" />
+                            <point x="0.923077" y="0.5" />
+                            <point x="0.846154" y="0.916667" />
+                            <point x="0.461538" y="0.958333" />
+                            <point x="0.153846" y="0.916667" />
+                            <point x="0.0769231" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="EggCarton" sid="2105076345077532">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="911391814637253" speed="5">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.8" original-source="C:\Users\David\Git Projects\LD32\Files\EggCarton.png">
+                        <collision-poly>
+                            <point x="0.0606061" y="0.2" />
+                            <point x="0.484848" y="0.1" />
+                            <point x="0.939394" y="0.2" />
+                            <point x="0.969697" y="0.5" />
+                            <point x="0.939394" y="0.8" />
+                            <point x="0.484848" y="0.7" />
+                            <point x="0.0606061" y="0.8" />
+                            <point x="0.030303" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ItemSpawn" sid="1143226467174798">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7969732374444056" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Fight Screen.xml</layout>
+        <layout>Title Screen.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Fight Events.xml</event-sheet>
+        <event-sheet>Title Events.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="6" />
+        <global-instance type="Keyboard" uid="7" />
+        <global-instance type="Gamepad" uid="8">
+            <properties>
+                <analog-deadzone>25</analog-deadzone>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
