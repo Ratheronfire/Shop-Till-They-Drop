@@ -872,6 +872,10 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
+                                                <event-block sid="258768388904594">
+                                                    <conditions />
+                                                    <actions />
+                                                </event-block>
                                             </sub-events>
                                         </event-block>
                                     </sub-events>
@@ -1006,6 +1010,11 @@
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Value">Enemy.ID</param>
                                 </condition>
+                                <condition id="-7" name="Compare instance variable" sid="8237660916311801" type="Baguette">
+                                    <param id="0" name="Instance variable">Creator</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="813831449407052" type="Enemy" />
                             </conditions>
                             <actions>
@@ -1029,6 +1038,11 @@
                                     <param id="0" name="Instance variable">Creator</param>
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="3413950679265702" type="Baguette">
+                                    <param id="0" name="Instance variable">Creator</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
                                 </condition>
                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="7867224607209141" type="Player" />
                             </conditions>
@@ -1057,6 +1071,11 @@
                                     <param id="0" name="Instance variable">Creator</param>
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Value">Enemy.ID</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="9872020170221903" type="Egg">
+                                    <param id="0" name="Instance variable">Creator</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
                                 </condition>
                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="4032717456429859" type="Enemy" />
                             </conditions>
@@ -1098,6 +1117,11 @@
                                     <param id="0" name="Instance variable">Creator</param>
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="6022525630826081" type="Egg">
+                                    <param id="0" name="Instance variable">Creator</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
                                 </condition>
                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="3928310826204179" type="Player" />
                             </conditions>
@@ -1181,6 +1205,11 @@
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Value">Enemy.ID</param>
                                 </condition>
+                                <condition id="-7" name="Compare instance variable" sid="6706407669973684" type="Bean">
+                                    <param id="0" name="Instance variable">Creator</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="8030015475092629" type="Enemy" />
                             </conditions>
                             <actions>
@@ -1213,6 +1242,11 @@
                                     <param id="2" name="Value">0</param>
                                 </condition>
                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="5247813210142107" type="Player" />
+                                <condition id="-7" name="Compare instance variable" sid="4821153025463551" type="Bean">
+                                    <param id="0" name="Instance variable">Creator</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-12" name="Subtract from" sid="5322983258468532" type="Player">
